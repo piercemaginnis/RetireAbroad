@@ -5,9 +5,46 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Hello World test!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive World Map</title>
+<style>
+  /* CSS styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  #map-container {
+    width: 80%;
+    margin: auto;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+  }
+</style>
 </head>
 <body>
-<h1>Hello World! TEST</h1>
+
+<div id="map-container">
+  <!-- The SVG map will be loaded here -->
+</div>
+
+<script>
+  // JavaScript to load the SVG file
+  fetch('map.svg')
+    .then(response => response.text())
+    .then(svg => {
+      document.getElementById('map-container').innerHTML = svg;
+      // You can add more interactivity here
+    })
+    .catch(error => console.error('Error loading the SVG:', error));
+</script>
+
 </body>
 </html>
